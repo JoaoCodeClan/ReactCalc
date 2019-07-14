@@ -2,34 +2,25 @@ body{
   background-color: black;
   display:flex;
   justify-content: center;
-  align-items: flex-start;
+
 
 }
 
-/* div{
-  display:flex;
-  justify-content: center;
-
-} */
-
-
-.App {
-  text-align: center;
-  background-color: yellow;
-  display:flex;
-  flex-wrap: wrap;
-  }
+button{
+  flex:1;
+}
 
 .row{
   display:flex;
   flex-wrap:nowrap;
   flex-direction:row;
+  align-items: flex-end;
 }
 
 #calc-container{
 background-color: green;
-display:flex;
-flex-direction: column;
+/* display:flex;
+flex-direction: column; */
 }
 
 #row1 {
