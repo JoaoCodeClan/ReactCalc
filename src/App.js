@@ -5,37 +5,37 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-    <div id="calc-container">
+    <div  id="calc-container">
       <div id="display-container">
       </div>
-      <div id="row1">
-      <button id=""> </button>
-      <button id=""> </button>
-      <button id=""> </button>
-      <button id=""> </button>
+      <div className="row" id="row1">
+      <button id="bttn-clear">AC</button>
+      <button id="bttn-negpos">+/-</button>
+      <button id="bttn-percent">%</button>
+      <button id="bttn-division">÷</button>
       </div>
-      <div id="row2">
-      <button id="">7</button>
-      <button id="">8</button>
-      <button id="">9</button>
-      <button id=""> </button>
+      <div  className="row" id="row2">
+      <button id="bttn-seven">7</button>
+      <button id="bttn-eight">8</button>
+      <button id="bttn-nine">9</button>
+      <button id="bttn-times">x</button>
       </div>
-      <div id="row3">
-      <button id="">4</button>
-      <button id="">5</button>
-      <button id="">6</button>
-      <button id=""> </button>
+      <div  className="row" id="row3">
+      <button id="bttn-four">4</button>
+      <button id="bttn-five">5</button>
+      <button id="bttn-six">6</button>
+      <button id="bttn-minus">-</button>
       </div>
-      <div id="row4">
-      <button id="">1 </button>
-      <button id=""> 2</button>
-      <button id=""> 3</button>
-      <button id=""> </button>
+      <div  className="row" id="row4">
+      <button id="bttn-one">1</button>
+      <button id="bttn-two">2</button>
+      <button id="bttn-three">3</button>
+      <button id="bttn-plus">+</button>
       </div>
-      <div id="row5">
-      <button id="">0</button>
-      <button id="">.</button>
-      <button id="">=</button>
+      <div className="row" id="row5">
+      <button id="bttn-zero">0</button>
+      <button id="bttn-dot">.</button>
+      <button id="bttn-equal">=</button>
 
       </div>
     </div>
