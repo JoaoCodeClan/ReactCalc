@@ -11,7 +11,12 @@ body{
   background-color: yellow;
   display:flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  
+
+  }
+
+#calc-container{
+  background-color: green;
+display:flex;
+flex-direction: column;
 
 }

@@ -2,10 +2,16 @@ import React from 'react';
 import './App.css';
 
 function App() {
+
+const displayStyle={
+  backgroundColor: "black",
+  color: "white"
+}
+
   return (
     <div className="App">
     <div  id="calc-container">
-      <div id="display-container">
+      <div id="display-container" style= {displayStyle}> display
       </div>
       <div className="row" id="row1">
       <button id="bttn-clear">AC</button>
