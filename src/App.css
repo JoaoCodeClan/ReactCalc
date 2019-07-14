@@ -3,7 +3,14 @@ body{
   display:flex;
   justify-content: center;
   align-items: flex-start;
+
 }
+
+/* div{
+  display:flex;
+  justify-content: center;
+
+} */
 
 
 .App {
@@ -11,12 +18,37 @@ body{
   background-color: yellow;
   display:flex;
   flex-wrap: wrap;
-
   }
 
+.row{
+  display:flex;
+  flex-wrap:nowrap;
+  flex-direction:row;
+}
+
 #calc-container{
-  background-color: green;
+background-color: green;
 display:flex;
 flex-direction: column;
+}
+
+#row1 {
+  background-color: white;
+
+}
+#row2 {
+  background-color: blue;
+
+}
+#row3 {
+  background-color: pink;
+
+}
+#row4 {
+  background-color: purple;
+;
+}
+#row5 {
+  background-color: red;
 
 }
