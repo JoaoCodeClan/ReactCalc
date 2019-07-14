@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
         <div  id="calc-container">
-              <div id="display-container" > display</div>
+              <div id="display-container" >0</div>
               <div className="row" id="row1">
                   <button className="operatorspe" id="bttn-clear">AC</button>
                   <button className="operatorspe" id="bttn-negpos">+/-</button>

@@ -1,83 +1,86 @@
 body{
-  background-color: black;
+
   display:flex;
   justify-content: center;
-
-
 }
 
 button{
   flex:1 1 0;
   width:25%;
+  font-size: 200%;
 }
 
 .row{
   display:flex;
   flex-wrap:nowrap;
   flex-direction:row;
-
 }
 .operatorspe{
   background-color: rgba(105,105,105);
   color:white;
-
 }
 
 .operator{
   background-color: orange;
   color:white;
-
-
 }
 
 .numpad{
   background-color:rgba(128,128,128);
   color:white;
-
 }
 
 #calc-container{
-background-color: green;
 display:flex;
 flex-direction: column;
-height: 75vh;
+height: 90vh;
 width: 25vw;
 
-/* margin-top: 25%;
-margin-bottom: 25%; */
 }
 
 #row1 {
-  background-color: white;
-  flex:1 1 0;
+    flex:1 1 0;
 
 }
 #row2 {
-  background-color: blue;
   flex:1 1 0;
 
 }
 #row3 {
-  background-color: pink;
-  flex:1 1 0;
+    flex:1 1 0;
 
 }
 #row4 {
-  background-color: purple;
-  flex:1 1 0;
+    flex:1 1 0;
 ;
 }
 #row5 {
-  background-color: red;
-  flex:1 1 0;
+    flex:1 1 0;
+    border-radius: 0px 0px 15px 15px;
 }
 #bttn-zero{
-  flex-grow:2.18;
+  flex-grow:1.9;
+  text-align: left;
+  padding-left: 30px;
+  border-radius: 0px 0px 0px 15px;
+
+}
+
+#bttn-equal{
+  border-radius: 0px 0px 15px 0px;
 }
 
 #display-container{
   background-color: black;
   color: white;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
   text-align: right;
-    flex:1 1 0;
+  font-size: 100px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  flex-grow:1;
+
+
 }
