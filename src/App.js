@@ -5,20 +5,40 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="calc-container">
+      <div id="display-container">
+      </div>
+      <div id="row1">
+      <button id=""> </button>
+      <button id=""> </button>
+      <button id=""> </button>
+      <button id=""> </button>
+      </div>
+      <div id="row2">
+      <button id="">7</button>
+      <button id="">8</button>
+      <button id="">9</button>
+      <button id=""> </button>
+      </div>
+      <div id="row3">
+      <button id="">4</button>
+      <button id="">5</button>
+      <button id="">6</button>
+      <button id=""> </button>
+      </div>
+      <div id="row4">
+      <button id="">1 </button>
+      <button id=""> 2</button>
+      <button id=""> 3</button>
+      <button id=""> </button>
+      </div>
+      <div id="row5">
+      <button id="">0</button>
+      <button id="">.</button>
+      <button id="">=</button>
+
+      </div>
+    </div>
     </div>
   );
 }
