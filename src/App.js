@@ -33,6 +33,31 @@ class App extends React.Component  {
 	}
 }
 
+decimalInput=(event)=>{
+  const{displayValue, waitingOnNext, operator, storedInput }=this.state
+  const bttnValue= ".";
+
+  if(waitingOnNext){
+
+		this.setState({storedInput: displayValue })
+		this.setState({ displayValue: ".",
+						waitingOnNext: false
+		})}
+	else if(displayValue.indexOf(".")===-1){
+		this.setState({storedInput: displayValue});
+
+		this.setState({displayValue: displayValue + ".",
+					   waitingOnNext: false
+		})
+	}
+
+
+
+}
+
+
+
+
 
 render(){
   return (
@@ -65,7 +90,7 @@ render(){
               </div>
               <div className="row" id="row5">
                   <button className="numpad" value="0" id="bttn-zero" onClick={this.numberInput}>0</button>
-                  <button className="numpad" value="." id="bttn-dot">.</button>
+                  <button className="numpad" value="." id="bttn-dot" onClick={this.decimalInput}>.</button>
                   <button className="operator"  id="bttn-equal">=</button>
               </div>
         </div>
