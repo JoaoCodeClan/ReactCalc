@@ -1,14 +1,22 @@
 import React from 'react';
 import './App.css';
 
-function App() {
+class App extends React.Component  {
+
+  state= {
+  	displayValue: "0",
+  	waitingOnNext: false,
+  	operator: undefined,
+  	storedInput: undefined
+
+  }
 
 
-
+render(){
   return (
     <div className="App">
         <div  id="calc-container">
-              <div id="display-container" >0</div>
+              <div id="display-container" >{this.state.displayValue}</div>
               <div className="row" id="row1">
                   <button className="operatorspe" id="bttn-clear">AC</button>
                   <button className="operatorspe" id="bttn-negpos">+/-</button>
@@ -41,6 +49,8 @@ function App() {
         </div>
     </div>
   );
+
+  }
 }
 
 export default App;
