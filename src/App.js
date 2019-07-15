@@ -38,21 +38,22 @@ decimalInput=(event)=>{
   const bttnValue= ".";
 
   if(waitingOnNext){
-
 		this.setState({storedInput: displayValue })
 		this.setState({ displayValue: ".",
 						waitingOnNext: false
 		})}
 	else if(displayValue.indexOf(".")===-1){
 		this.setState({storedInput: displayValue});
-
 		this.setState({displayValue: displayValue + ".",
 					   waitingOnNext: false
 		})
 	}
+}
 
 
-
+clearDisplay=(event)=>{
+      const{displayValue }=this.state;
+      this.setState({displayValue: "0"})
 }
 
 
@@ -65,7 +66,7 @@ render(){
         <div  id="calc-container">
               <div id="display-container" >{this.state.displayValue}</div>
               <div className="row" id="row1">
-                  <button className="operatorspe" id="bttn-clear">AC</button>
+                  <button className="operatorspe" id="bttn-clear" onClick={this.clearDisplay}>AC</button>
                   <button className="operatorspe" id="bttn-negpos">+/-</button>
                   <button className="operatorspe" id="bttn-percent">%</button>
                   <button className="operator" value="/" id="bttn-division">÷</button>
