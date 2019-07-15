@@ -34,7 +34,7 @@ class App extends React.Component  {
 }
 
 decimalInput=(event)=>{
-  const{displayValue, waitingOnNext, operator, storedInput }=this.state
+  const{displayValue, waitingOnNext, operator, storedInput }=this.state;
   const bttnValue= ".";
 
   if(waitingOnNext){
@@ -57,6 +57,19 @@ clearDisplay=(event)=>{
 }
 
 
+negDisplay=(event)=>{
+  const{displayValue, waitingOnNext, operator, storedInput }=this.state;
+
+	if(displayValue.charAt(0)==="-"){
+		this.setState({displayValue: displayValue.substr(1)})
+	}else{
+		this.setState({displayValue: "-"+ displayValue});
+	}
+}
+
+
+
+
 
 
 
@@ -67,7 +80,7 @@ render(){
               <div id="display-container" >{this.state.displayValue}</div>
               <div className="row" id="row1">
                   <button className="operatorspe" id="bttn-clear" onClick={this.clearDisplay}>AC</button>
-                  <button className="operatorspe" id="bttn-negpos">+/-</button>
+                  <button className="operatorspe" id="bttn-negpos" onClick={this.negDisplay}>+/-</button>
                   <button className="operatorspe" id="bttn-percent">%</button>
                   <button className="operator" value="/" id="bttn-division">÷</button>
               </div>
