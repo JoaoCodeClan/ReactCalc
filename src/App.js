@@ -12,7 +12,7 @@ class App extends React.Component  {
 
   numberInput=(event)=>{
 
-    const{displayValue, waitingOnNext, operator, storedInput }=this.state
+    const{displayValue, waitingOnNext}=this.state
     const bttnValue= event.target.value;
 
     this.setState({displayValue: bttnValue });
@@ -34,8 +34,8 @@ class App extends React.Component  {
 }
 
 decimalInput=(event)=>{
-  const{displayValue, waitingOnNext, operator, storedInput }=this.state;
-  const bttnValue= ".";
+  const{displayValue, waitingOnNext }=this.state;
+
 
   if(waitingOnNext){
 		this.setState({storedInput: displayValue })
@@ -52,13 +52,13 @@ decimalInput=(event)=>{
 
 
 clearDisplay=(event)=>{
-      const{displayValue }=this.state;
+
       this.setState({displayValue: "0"})
 }
 
 
 negDisplay=(event)=>{
-  const{displayValue, waitingOnNext, operator, storedInput }=this.state;
+  const{displayValue }=this.state;
 
 	if(displayValue.charAt(0)==="-"){
 		this.setState({displayValue: displayValue.substr(1)})
