@@ -12,11 +12,11 @@ class App extends React.Component  {
     	storedInput: undefined
     }
 
-  numberInput=(event)=>{
+  numberInput=(digit)=>{
     const{displayValue, waitingOnNext, storedInput}=this.state
 
 
-    const bttnValue= event.target.value;
+    const bttnValue= digit;
 //     console.log(event);
 // console.log(bttnValue)
     // this.setState({displayValue: bttnValue });
@@ -44,7 +44,7 @@ class App extends React.Component  {
 	}
 }
 
-decimalInput=(event)=>{
+decimalInput=()=>{
   const{displayValue, waitingOnNext }=this.state;
 
   if(waitingOnNext){
@@ -84,14 +84,14 @@ const{displayValue }=this.state;
 }
 
 
-operatorInput=(event)=>{
+operatorInput=(operatorClicked)=>{
   const{displayValue, waitingOnNext, operator, storedInput }=this.state;
 
 this.setState({waitingOnNext: true,
                 storedInput: displayValue
 
               });
-  const operatorClicked = event.target.value;
+
    let opResult= null;
   const  mathsOperation= `${storedInput}${operatorClicked}${displayValue}`;
  console.log(mathsOperation)
@@ -116,9 +116,18 @@ this.setState({waitingOnNext: true,
 
 getButtonValue=(buttonValue)=>{
 
-  this.setState({
-    displayValue: buttonValue
-  })
+  if(buttonValue==="/"||buttonValue==="*"||buttonValue==="-"||buttonValue==="+"){
+
+    this.operatorInput(buttonValue);
+  }else if(buttonValue===".") {
+
+    this.decimalInput();
+
+  }else{
+    this.numberInput(buttonValue);
+  }
+
+
 }
 
 
