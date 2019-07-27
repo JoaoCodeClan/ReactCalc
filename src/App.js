@@ -124,6 +124,8 @@ getButtonValue=(buttonValue)=>{
 
 
 render(){
+
+
   return (
 
 
@@ -159,7 +161,7 @@ render(){
 
               </div>
               <div className="row" id="row5">
-              <PadButton className={"numpad"} buttonValue={"0"} getButtonValue={this.getButtonValue}/>
+              <PadButton className={"numpad"} id={"bttn-zero"} buttonValue={"0"} getButtonValue={this.getButtonValue}/>
               <PadButton className={"numpad"} buttonValue={"."} getButtonValue={this.getButtonValue}/>
               <PadButton className={"operator"} buttonValue={"="} getButtonValue={this.getButtonValue}/>
 
