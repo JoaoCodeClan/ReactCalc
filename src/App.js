@@ -42,17 +42,10 @@ class App extends React.Component  {
 }
 
 decimalInput=()=>{
-  const{displayValue, waitingOnNext }=this.state;
+  const{displayValue }=this.state;
 
-  if(waitingOnNext){
-		// this.setState({storedInput: displayValue })
-		this.setState({ displayValue: ".",
-						// waitingOnNext: false
-		})}
-	else if(displayValue.indexOf(".")===-1){
-		// this.setState({storedInput: displayValue});
-		this.setState({displayValue: displayValue + ".",
-					   // waitingOnNext: false
+if(displayValue.indexOf(".")===-1){
+		this.setState({displayValue: displayValue + "."
 		})
 	}
 }
@@ -68,10 +61,11 @@ clearDisplay=(event)=>{
 
 negDisplay=(event)=>{
   const{displayValue }=this.state;
-	if(displayValue.charAt(0)==="-"){
-		this.setState({displayValue: displayValue.substr(1)})
+  const stringVal= displayValue;
+	if(stringVal.charAt(0)==="-"){
+		this.setState({displayValue: stringVal.substr(1)})
 	}else{
-		this.setState({displayValue: "-"+ displayValue});
+		this.setState({displayValue: "-"+ stringVal});
 	}
 }
 
@@ -107,7 +101,7 @@ operatorInput=(operatorClicked)=>{
 }
 
 getTotal=()=>{
-  const{displayValue,  operator, waitingOnNext,  storedInput }=this.state;
+  const{displayValue,  operator,  storedInput }=this.state;
   const  mathsOperation= `${storedInput}${operator}${displayValue}`;
   let total=evaluate(mathsOperation);
   this.setState({displayValue: total,
