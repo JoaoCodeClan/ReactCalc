@@ -32,12 +32,12 @@ class App extends React.Component  {
 
 	}else{
     if(displayValue==='0'){
-      this.setState({storedInput: displayValue });
+      // this.setState({storedInput: displayValue });
       this.setState({displayValue: String(bttnValue)});
 
     }else{
 
-      this.setState({storedInput:displayValue});
+      // this.setState({storedInput:displayValue});
       this.setState({displayValue: displayValue + String(bttnValue)})
 
     }
@@ -48,14 +48,14 @@ decimalInput=()=>{
   const{displayValue, waitingOnNext }=this.state;
 
   if(waitingOnNext){
-		this.setState({storedInput: displayValue })
+		// this.setState({storedInput: displayValue })
 		this.setState({ displayValue: ".",
-						waitingOnNext: false
+						// waitingOnNext: false
 		})}
 	else if(displayValue.indexOf(".")===-1){
-		this.setState({storedInput: displayValue});
+		// this.setState({storedInput: displayValue});
 		this.setState({displayValue: displayValue + ".",
-					   waitingOnNext: false
+					   // waitingOnNext: false
 		})
 	}
 }
