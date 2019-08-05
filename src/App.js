@@ -8,37 +8,33 @@ class App extends React.Component  {
   state={
     	displayValue: "0",
     	waitingOnNext: false,
-    	operator: undefined,
+    	operatorDisplay: false,
     	storedInput: undefined
     }
 
   numberInput=(digit)=>{
-    const{displayValue, waitingOnNext, storedInput}=this.state
+    const{displayValue, waitingOnNext, operatorDisplay}=this.state
 
 
     const bttnValue= digit;
-//     console.log(event);
-// console.log(bttnValue)
-    // this.setState({displayValue: bttnValue });
 
-    if(waitingOnNext){
+    if(waitingOnNext&&operatorDisplay===false){
 
-			this.setState({
-      // storedInput: displayValue,
-			displayValue: String(bttnValue),
-			// waitingOnNext: false
+			this.setState({	displayValue:  bttnValue,
+        operatorDisplay: true
 
-			})
+      })
 
-	}else{
+	}else if (waitingOnNext &&operatorDisplay===true){
+    this.setState({displayValue: displayValue + bttnValue})
+
+
+  }else{
     if(displayValue==='0'){
-      // this.setState({storedInput: displayValue });
-      this.setState({displayValue: String(bttnValue)});
+        this.setState({displayValue: bttnValue});
 
     }else{
-
-      // this.setState({storedInput:displayValue});
-      this.setState({displayValue: displayValue + String(bttnValue)})
+        this.setState({displayValue: displayValue + bttnValue})
 
     }
 	}
@@ -63,7 +59,8 @@ decimalInput=()=>{
 
 clearDisplay=(event)=>{
       this.setState({displayValue: "0",
-                    storedInput: undefined
+                    storedInput: undefined,
+                    waitingOnNext: false
     })
 }
 
@@ -85,32 +82,32 @@ const{displayValue }=this.state;
 
 
 operatorInput=(operatorClicked)=>{
-  const{displayValue, waitingOnNext, operator, storedInput }=this.state;
-
-this.setState({waitingOnNext: true,
-                storedInput: displayValue
-
-              });
-
+  const{displayValue, waitingOnNext, storedInput }=this.state;
+console.log(operatorClicked);
+console.log(" start stored value ="+ storedInput);
+console.log("start stored value ="+ storedInput);
    let opResult= null;
-  const  mathsOperation= `${storedInput}${operatorClicked}${displayValue}`;
- console.log(mathsOperation)
-   if(storedInput&&operatorClicked!=="="&&waitingOnNext===true){
+
+   if(waitingOnNext===true){
+
+    const  mathsOperation= `${storedInput}${operatorClicked}${displayValue}`;
+    console.log(mathsOperation);
     opResult=evaluate(mathsOperation);
     this.setState({displayValue: opResult,
               storedInput:opResult
               })
 
-  }else if(storedInput&&operatorClicked==="="){
-    opResult=evaluate(mathsOperation);
-    console.log(opResult);
-    this.setState({displayValue: String(opResult),
-              storedInput:undefined,
-              waitingOnNext: false
-              })
-    mathsOperation=null;
+  }else if(waitingOnNext===false){
+     const valueToStore = this.state.displayValue
+    this.setState({ storedInput: valueToStore
 
-  }
+              })
+            }
+
+            console.log(" end stored value ="+ storedInput);
+            console.log("end stored value ="+ storedInput);
+  this.setState({waitingOnNext: true,
+  operatorDisplay: false})
 
 }
 
