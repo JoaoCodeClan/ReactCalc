@@ -8,6 +8,7 @@ class App extends React.Component  {
   state={
     	displayValue: "0",
     	waitingOnNext: false,
+      operator: undefined,
     	operatorDisplay: false,
     	storedInput: undefined
     }
@@ -82,16 +83,15 @@ const{displayValue }=this.state;
 
 
 operatorInput=(operatorClicked)=>{
-  const{displayValue, waitingOnNext, storedInput }=this.state;
-console.log(operatorClicked);
-console.log(" start stored value ="+ storedInput);
-console.log("start stored value ="+ storedInput);
+  const{displayValue, waitingOnNext,  storedInput }=this.state;
+  this.setState({operator: operatorClicked })
+
    let opResult= null;
 
    if(waitingOnNext===true){
 
     const  mathsOperation= `${storedInput}${operatorClicked}${displayValue}`;
-    console.log(mathsOperation);
+
     opResult=evaluate(mathsOperation);
     this.setState({displayValue: opResult,
               storedInput:opResult
@@ -99,15 +99,22 @@ console.log("start stored value ="+ storedInput);
 
   }else if(waitingOnNext===false){
      const valueToStore = this.state.displayValue
-    this.setState({ storedInput: valueToStore
-
-              })
+    this.setState({ storedInput: valueToStore})
             }
-
-            console.log(" end stored value ="+ storedInput);
-            console.log("end stored value ="+ storedInput);
   this.setState({waitingOnNext: true,
-  operatorDisplay: false})
+                operatorDisplay: false})
+
+}
+
+getTotal=()=>{
+  const{displayValue,  operator, waitingOnNext,  storedInput }=this.state;
+  const  mathsOperation= `${storedInput}${operator}${displayValue}`;
+  let total=evaluate(mathsOperation);
+  this.setState({displayValue: total,
+  storedInput: total,
+  waitingOnNext: false,
+  operator: undefined
+});
 
 }
 
@@ -119,6 +126,10 @@ getButtonValue=(buttonValue)=>{
   }else if(buttonValue===".") {
 
     this.decimalInput();
+
+  }else if(buttonValue==="=") {
+
+    this.getTotal();
 
   }else{
     this.numberInput(buttonValue);
